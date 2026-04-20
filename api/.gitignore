@@ -1,0 +1,9 @@
+node_modules/
+data/*.sqlite
+data/*.db
+.env
+.env.local
+!.env.example
+dist/
+coverage/
+*.log
