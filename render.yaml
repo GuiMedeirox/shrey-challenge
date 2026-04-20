@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: contacts-api
+    runtime: node
+    region: ohio
+    plan: free
+    rootDir: api
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: LOG_LEVEL
+        value: info
+      - key: IDEMPOTENCY_TTL_HOURS
+        value: 24
+      # Set this to your Vercel domain, e.g. https://your-app.vercel.app
+      # - key: CORS_ORIGIN
+      #   value: https://your-app.vercel.app
+      # Optional: mount a disk if you need SQLite persistence
+      # - key: DB_PATH
+      #   value: /data/contacts.sqlite
+    # disks:
+    #   - name: sqlite-data
+    #     mountPath: /data
+    #     sizeGB: 1

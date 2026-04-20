@@ -8,7 +8,7 @@ import type {
   ApiError,
 } from './types'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000'
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001'
 
 export class HttpError extends Error {
   constructor(public status: number, public body: ApiError | null, message: string) {

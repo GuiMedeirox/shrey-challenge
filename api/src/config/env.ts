@@ -7,6 +7,7 @@ const envSchema = z.object({
   DB_PATH: z.string().default('./data/contacts.sqlite'),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),
   IDEMPOTENCY_TTL_HOURS: z.coerce.number().int().positive().default(24),
+  CORS_ORIGIN: z.string().optional(),
 })
 
 export type Env = z.infer<typeof envSchema>

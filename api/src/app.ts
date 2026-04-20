@@ -32,7 +32,7 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<BuiltApp>
   const app = express()
   app.disable('x-powered-by')
   app.use(httpLogger)
-  app.use(cors())
+  app.use(cors(env.CORS_ORIGIN ? { origin: env.CORS_ORIGIN } : undefined))
   app.use(express.json({ limit: '2mb' }))
 
   app.get('/health', (_req, res) => {
